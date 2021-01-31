@@ -2,12 +2,16 @@ const express = require('express')
 const router = express.Router()
 const dataModel = require('../models/testmodel')
 
+
 router.get('/', (req, res)=>{
    res.send('this is the test route')
 })
 
 router.get('/second', (req, res)=>{
-   res.send('this is the second test route')
+   res.json({
+      name:"felix",
+      age:'27'
+   })
 })
 
 router.post('/newpost', (req, res)=>{

@@ -3,13 +3,16 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser');
+const cors = require('cors')
+require('dotenv').config()
 
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 //alternatively... 
 //app.use(bodyParser.json())
 
 mongoose
-   .connect('mongodb+srv://felixadmin:Five534135@clusterrl.kclxe.mongodb.net/test',
+   .connect(process.env.DB,
       {
          useNewUrlParser: true,  
          useUnifiedTopology: true,
